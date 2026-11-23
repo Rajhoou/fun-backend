@@ -94,6 +94,7 @@ Yo method le jwt.sign function ko madat le user ko _id, email, username, ani ful
 userSchema.methods.generateRefreshToken = function () {
     return jwt.sign(
         {
+
             _id: this._id,
 
         },
