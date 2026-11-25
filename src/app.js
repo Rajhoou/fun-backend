@@ -30,5 +30,12 @@ app.get("/", (req, res) => {
 
 
 });
+//routes import 
+
+import userRouter from './routes/user.routes.js'
+//routes declaration
+
+app.use("/users", userRouter)
+//http://localhost:8000/users/register after users all the method is written in route and it passes to route for /login etc .
 
 export { app };

@@ -53,7 +53,7 @@ const userSchema = new Schema(/*yaha hami le userSchema banako cha jasma user ko
     }
 )
 
-userSchema.pre("save", async function (next)/* here we are adding a pre-save hook to the userSchema,
+userSchema.pre("save", async function ()/* here we are adding a pre-save hook to the userSchema,
  which will be called before a user document is saved to the database. 
  The hook checks if the password field has been modified, and 
  if so, it hashes the password using bcrypt before saving it to the database. 
@@ -61,7 +61,7 @@ userSchema.pre("save", async function (next)/* here we are adding a pre-save hoo
     if (!this.isModified("password")) return next();
 
     this.password = await bcrypt.hash(this.password, 10)
-    next()
+
 })
 
 userSchema.methods.isPasswordCorrect = async function (password) {
